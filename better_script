@@ -1,0 +1,17 @@
+#!/bin/bash
+
+##$ -cwd -l gpus=1
+
+# instead of source use . to activate they python virtual environment with torch installed
+
+. ~/Library/archaicVenv/bin/activate
+
+
+python explirefit/trainer.py \
+       explirefit/data/glove_emb/glove.840B.300d.txt \
+       explirefit/data/constraints/synonyms.txt \
+       explirefit/data/constraints/antonyms.txt \
+       explirefit/models/model_results
+
+deactivate  
+
